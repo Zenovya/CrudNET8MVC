@@ -9,7 +9,6 @@
         <h1 class="m-0 text-white">Luis Lovo .NETCore MVC</h1>
     </div>
    </div> *@
-<h1 class="display-4 mb-3 text-center">People List - CrudNET8MVC</h1>
 <div class="container">
     <div class="card shadow rounded-1">
 
@@ -49,7 +48,7 @@
                                                 <td>@Html.DisplayFor(m => item.CellPhone)</td>
                                                 <td>@Html.DisplayFor(m => item.CreatedAt)</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-info"></i></a>
+                                                    <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a>
                                                     <a class="btn btn-sm btn-outline-success" asp-action="Update" asp-route-id="@item.Id"><i class="fa-regular fa-pen-to-square"></i></a>
                                                     <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-delete-left"></i></a>
                                                 </td>

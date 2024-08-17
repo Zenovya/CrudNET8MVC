@@ -99,6 +99,40 @@ namespace CrudNET8MVC.Controllers
             return View(People);
         }
 
+        [HttpGet]
+        public IActionResult Delete(int? Id)
+        {
+            if (Id == null)
+            {
+                return NotFound();
+            }
+
+            var People = _context.People.Find(Id);
+
+            if (People == null)
+            {
+                return NotFound();
+            }
+
+            return View(People);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteById(int? Id)
+        {
+
+            var People = await _context.People.FindAsync(Id);
+            if(People == null)
+            {
+                return NotFound();
+            }
+
+            _context.People.Remove(People);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
 
         public IActionResult Privacy()
         {
