@@ -23,6 +23,83 @@ namespace CrudNET8MVC.Controllers
             return View(await _context.People.ToListAsync());
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(People NewPeople)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                //Add createdAt
+                NewPeople.CreatedAt = DateTime.Now;
+
+                _context.People.Add(NewPeople);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Update(int? Id)
+        {
+            if (Id == null)
+            {
+                return NotFound();
+            }
+
+            var People = _context.People.Find(Id);
+
+            if (People == null)
+            {
+                return NotFound();
+            }
+
+            return View(People);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(People NewPeople)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(NewPeople);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Details(int? Id)
+        {
+            if(Id == null)
+            {
+                return NotFound();
+            }
+
+            var People = _context.People.Find(Id);
+            
+            if(People == null)
+            {
+                return NotFound();
+            }
+
+            return View(People);
+        }
+
+
         public IActionResult Privacy()
         {
             return View();

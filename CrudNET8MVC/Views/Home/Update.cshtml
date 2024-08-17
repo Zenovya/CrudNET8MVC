@@ -1,0 +1,66 @@
+﻿@model CrudNET8MVC.Models.People;
+
+@{
+    ViewData["Title"] = "Update Contact";
+}
+
+@* <div class="card shadow rounded-2 mt-2">
+    <div class="card-header bg-primary">
+        <h1 class="m-0 text-white">Luis Lovo .NETCore MVC</h1>
+    </div>
+   </div> *@
+<div class="container">
+    <div class="card shadow rounded-1">
+        <div class="card-header bg-dark">
+            <h5 class="m-0 text-white"><i class="fa-regular fa-pen-to-square"></i> Update Contact</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="Update" method="post">
+
+                @*
+                    ID in Hidden Input
+                *@
+                <input type="hidden" asp-for="Id" />
+
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="row col">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-2">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Chris Jacobs" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-2">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="ChJacobs@example.com" type="email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-2">
+                        <div class="form-group">
+                            <label asp-for="Phone" class="control-label">Phone</label>
+                            <input asp-for="Phone" class="form-control" placeholder="22602762" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="form-group">
+                            <label asp-for="CellPhone" class="control-label">CellPhone</label>
+                            <input asp-for="CellPhone" class="form-control" placeholder="76197868" />
+                            <span asp-validation-for="CellPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-grid gap-2 d-md-block d-md-flex justify-content-md-center">
+                            <button type="submit" class="btn btn-sm btn-outline-success"><i class="fa-regular fa-pen-to-square"></i> Update Contact</button>
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-left-long"></i> Back</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -6,16 +6,16 @@ namespace CrudNET8MVC.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "El nombre es obligatorio.")]
+        [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "El teléfono es obligatorio.")]
+        [Required(ErrorMessage = "Phone is required.")]
         public string Phone { get; set; }
 
-        [Required(ErrorMessage = "El correo es obligatorio.")]
+        [Required(ErrorMessage = "Email is required.")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "El celular es obligatorio.")]
+        [Required(ErrorMessage = "Cellphone is required.")]
         public string CellPhone { get; set; }
 
         public DateTime CreatedAt { get; set; }
